@@ -87,7 +87,7 @@ header.inner {
   box-shadow: var(--box-shadow);
 }
 
-/* Buttons */
+/* More Buttons */
 .btn {
   color: #fff;
   padding: 0.6rem;
@@ -111,9 +111,9 @@ header.inner {
   border: 1px solid var(--primary-hover-color);
 }
 
-/* Home Search */
+/* utilize: maybe? */
 .search-wrap {
-  background: url('../img/showcase.jpg') no-repeat center center fixed / cover;
+  background: url('./') no-repeat center center fixed / cover;
   height: 100vh;
   width: 100%;
   padding: 1.3rem 3rem;
@@ -159,6 +159,10 @@ header.inner {
   opacity: .75;
 }
 
+#d-20 {
+  max-height: 100px;
+}
+
 /* Everything in the search form */
 .search-form > * {
   border: 0;
@@ -175,7 +179,7 @@ input[type='search'] {
   opacity: .75;
 }
 
-/* Gigs */
+/* users */
 .user-info {
   background: var(--bg-color);
   border-bottom: 4px solid var(--primary-color);
@@ -197,7 +201,7 @@ input[type='search'] {
 
 .user-info .tech span {
   color: var(--primary-color);
-}
+} */
 
 /* Form */
 .form-wrap {
@@ -208,7 +212,7 @@ input[type='search'] {
   margin-top: 3rem;
   border-bottom: 4px solid var(--primary-color);
   box-shadow: var(--box-shadow);
-}
+} */ 
 
 .form-wrap.reg-form,
 .form-wrap.login-form {
@@ -254,7 +258,7 @@ label {
 
   .search-form {
     width: 100%;
-  }
+  } */
 
   input[type='search'] {
     flex-basis: 100%;
@@ -282,7 +286,7 @@ label {
   .form-wrap.login-form {
     width: 80%;
   }
-}
+} 
 
 /* Smartphones */
 @media (max-width: 500px) {
