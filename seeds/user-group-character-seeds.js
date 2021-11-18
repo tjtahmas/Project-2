@@ -1,4 +1,4 @@
-const { UserGroupCharacter } = require('../models');
+const { UserGroupCharacter, User } = require('../models');
 
 const userGroupCharacterData = [
     {
@@ -18,8 +18,6 @@ const userGroupCharacterData = [
         user_group_id: 6,
     },
 ];
-
-console.log(userGroupCharacterData)
 
 const seedUserGroupCharacters = () => UserGroupCharacter.bulkCreate(userGroupCharacterData);
 
