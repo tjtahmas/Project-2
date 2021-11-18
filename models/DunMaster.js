@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Character extends Model { }
+class DunMaster extends Model { }
 
-Character.init({
+DunMaster.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -13,34 +13,19 @@ Character.init({
     },
     user_id: {
         type: DataTypes.INTEGER,
-        references: {
+        refernces: {
             model: 'user',
             key: 'id',
         }
     },
-    character_name: {
-        type: DataTypes.STRING(30),
-        allowNull: false,
-    },
-    class: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    race: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    description: {
-        type: DataTypes.STRING
-    }
 },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'character',
+        modelName: 'dunMaster',
     }
 );
 
-module.exports = Character;
+module.exports = DunMaster;

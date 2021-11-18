@@ -15,10 +15,10 @@ Group.init({
     type: DataTypes.STRING(30),
     allowNull: false,
   },
-  dun_master_id: {
+  dunMaster_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'user',
+      mode: 'dunMaster',
       key: 'id',
     }
   },
