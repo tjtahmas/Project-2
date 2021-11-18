@@ -1,37 +1,66 @@
-'use strict';
+//import models
+const Group = require('./Group');
+const User = require('./User');
+const Character = require('./Character');
+const UserGroup = require('./UserGroup');
+const UserGroupCharacter = require('./UserGroupCharacter');
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+//import sequelize to initiate groups
+const { Sequelize, Op, Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection.js');
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+//--------------Many-to-Many-to-Many---------------------
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
+//Apply a Super Many-to-Many relationship between User and Group
+/* const UserGroup = sequelize.define('UserGroup', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false,
   }
+}, {
+  sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'userGroup',
 });
+*/
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+User.belongsToMany(Group, {through: UserGroup});
+Group.belongsToMany(User, { through: UserGroup});
+UserGroup.belongsTo(User);
+UserGroup.belongsTo(Group);
+User.hasMany(UserGroup);
+Group.hasMany(UserGroup);
 
-module.exports = db;
+//Apply a Super Many-to-Many relationship between Character and UserGroup
+// const UserGroupCharacter = sequelize.define('UserGroupCharacter', {
+//   id: {
+//     type: DataTypes.INTEGER,
+//     primaryKey: true,
+//     autoIncrement: true,
+//     allowNull: false,
+//   }
+// }, {
+//   sequelize,
+//     timestamps: false,
+//     freezeTableName: true,
+//     underscored: true,
+//     modelName: 'userGroupCharacter',
+// });
+Character.belongsToMany(UserGroup, { through: UserGroupCharacter});
+UserGroup.belongsToMany(Character, { through: UserGroupCharacter});
+UserGroupCharacter.belongsTo(Character);
+UserGroupCharacter.belongsTo(UserGroup);
+Character.hasMany(UserGroupCharacter);
+UserGroup.hasMany(UserGroupCharacter);
+
+module.exports = {
+  Group,
+  User,
+  Character,
+  UserGroup,
+  UserGroupCharacter,
+}
