@@ -36,8 +36,12 @@ Character.init({
         type: DataTypes.STRING,
     },
     description: {
-        type: DataTypes.STRING
-    }
+        type: DataTypes.STRING,
+    },
+    link: {
+        type: DataTypes.STRING,
+        defaultValue: 'https://www.dndbeyond.com/',
+    },
 },
     {
         sequelize,

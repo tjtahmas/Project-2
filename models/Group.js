@@ -31,7 +31,10 @@ Group.init({
   },
   campaign: {
     type: DataTypes.STRING(100),
-  }
+  },
+  announcement: {
+    type: DataTypes.STRING,
+  },
 }, {
   sequelize,
   timestamps: false,
