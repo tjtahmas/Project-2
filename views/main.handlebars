@@ -1,6 +1,85 @@
 {{!-- head --}}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="../public/css/form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/css/style.css">
+  <title>Dungeons & Dragons Basics</title>
+</head>
+
+<body>
+  <header>
+    <h2><a href="index.html"><i class="fas fa-code"></i>
+        Dungeons & Dragons</a></h2>
+    <nav>
+      <ul>
+        <li>
+          <a href="./">Home</a>
+        </li>
+        <li>
+          <a href="./">Campaign</a>
+        </li>
+        <li>
+          <a href="./">Character</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 {{!-- delete everything under  --}}
 
 
-{{!-- header --}}
+ <section id="search" class="search-wrap">
+  
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+      
+      <div id="id01" class="modal">
+      
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img class="fable" src="../images/dragons/d50u4bb-90d0b838-5dcb-4c61-8519-f72355fbd0ff.png" alt="" class="avatar">
+        </div>
+    
+        <div class="container" id="form-font-properties">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+            
+          <button type="submit">Enter Realm</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+    
+        <div class="container" style="background-color:#00000054">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+    <!-- <form action="users.html" class="search-form">
+      <i class="fas fa-search"></i>
+      <input type="search" name="term" placeholder="Campaign, Character">
+      <input type="submit" value="Search">
+    </form> -->
+  </section>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script> -->
+<script src="../js/style-form.js"></script>
+
+</body>
+
+</html>

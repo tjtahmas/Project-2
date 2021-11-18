@@ -1,13 +1,13 @@
 const Post = require('../models/Post');
 
 exports.getMyGrps = async (req, res, next) => {
-    try{
+    try {
         // const [posts, _] = await Post.findAll();
         // res.status(200).json({ count: posts.length, posts });
         console.log('get from "/user_name": get all groups');
         res.send('controller working');
 
-    }catch(error){
+    } catch (error) {
 
         console.log(error);
         next(error);
@@ -58,6 +58,21 @@ exports.getGroup = async (req, res, next) => {
 
     } catch (error) {
 
+        console.log(error);
+        next(error);
+    }
+}
+
+exports.getUser = async (req, res, next) => {
+    try {
+        const userData = await User.findAll({
+            attributes: { exclude: ['password'] },
+            order: [['name', 'ASC']],
+        });
+        const users = userData.map((project) => project.get({ plain: true }));
+        res.render('homepage', { users });
+    } catch (error) {
+        res.status(500).json(err);
         console.log(error);
         next(error);
     }
