@@ -11,24 +11,29 @@ Character.init({
         primaryKey: true,
         autoIncrement: true,
     },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id',
-        }
-    },
+    // user_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: 'user',
+    //         key: 'id',
+    //     },
+    // },
+    // group_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: 'group',
+    //         key: 'id'
+    //     },
+    // },
     character_name: {
         type: DataTypes.STRING(30),
         allowNull: false,
     },
     class: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     race: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     description: {
         type: DataTypes.STRING

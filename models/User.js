@@ -19,14 +19,18 @@ User.init({
     type: DataTypes.STRING,
     // ADD BCRYPT STUFF HERE OR FIGURE OUT PASSPORT
   },
-},
-  {
+  // is_dm: {
+  //   type: DataTypes.BOOLEAN,
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+}, {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'user',
-  }
+}
 );
 
 module.exports = User;
