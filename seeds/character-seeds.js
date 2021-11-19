@@ -33,6 +33,9 @@ const characterData = [
         race: 'Elf',
         description: 'A reclusive woodsman with a mysterious past, haunted by his former life...',
     },
+    // YOU WILL HAVE TO ADD A CHARACTER FOR THE DEMO USER USING A POST ROUTE
+    // user_id: 9
+    // group_id: 1
 ];
 
 const seedCharacters = () => Character.bulkCreate(characterData);
