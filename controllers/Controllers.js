@@ -77,3 +77,6 @@ exports.getUser = async (req, res, next) => {
         next(error);
     }
 }
+
+// exports.renderHome = async (req, res, next) => {
+// }

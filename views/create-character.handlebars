@@ -1,0 +1,34 @@
+
+<section id="add" class="container">
+    <div class="form-wrap">
+      <h1>Create Character</h1>
+        <p>Create a character to begin your campaign.</p>
+        <form>
+          <div class="input-group">
+            <label for="title">Name</label>
+            <input type="text" name="title" id="title" class="input-box"
+              placeholder="Example: Johnny McKittyCat" maxlength="100" required>
+          </div>
+          <div class="input-group">
+            <label for="Class">Class</label>
+            <input type="text" name="character-class" id="character-class" class="input-box"
+              placeholder="Example: Barbarian, Cleric, Fighter, Paladin..." maxlength="100">
+          </div>
+          <div class="input-group">
+            <label for="race">Race</label>
+            <input type="number" name="race" id="race" class="input-box" placeholder="Example: Dwarf, Elf, Gnome, Human, Tiefling...">
+          </div>
+          <div class="input-group">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" class="input-box"
+              placeholder="Example: You have a military rank from your career as a soldier." rows="10" required></textarea>
+          </div>
+          <div class="input-group">
+            <label for="budget">Contact Email</label>
+            <input type="email" name="contact_email" id="contactemail" class="input-box" placeholder="Enter an email"
+              required>
+          </div>
+          <input type="submit" value="Confirm Character" class="btn btn-reverse">
+        </form>
+    </div>
+  </section>

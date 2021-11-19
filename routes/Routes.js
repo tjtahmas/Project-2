@@ -9,7 +9,9 @@ const Controllers = require('../controllers/Controllers');
  * post new group data
  */
 router.route("/").get(Controllers.getMyGrps).post(Controllers.createGroup);
+// make this inheritable
 
+// router.route("/test").get(Controlle)
 //get groups, 
 router.route("/:group_name").get(Controllers.getGroup);
 
@@ -18,5 +20,9 @@ router.route("/:group_name").get(Controllers.getGroup);
 router.route("/:").get(Controllers.getPostById);
 
 // router.route("/:id").get(Controllers.getPostById);
+// router.post('/api/users/login', ()=>{
 
+// })
+
+// router.route("/landing").get(Controllers.renderHome); 
 module.exports = router;
