@@ -47,15 +47,19 @@ app.use(express.json());
 // work from server
  app.get('/', function(req, res) {
     res.render("home");
+ });
+ app.get('/character', function(req, res) {
+    res.render("character");
+ });
 
-});
+
 
  app.get('/login', function(req, res) {
     res.render("login");
  });
 
- app.get('/landing', function(req, res) {
-    res.render("landing");
+ app.get('/campaign', function(req, res) {
+    res.render("campaign");
  });
 
  app.get('/group', function(req, res) {

@@ -20,5 +20,9 @@ router.route("/:group_name").get(Controllers.getGroup);
 router.route("/:").get(Controllers.getPostById);
 
 // router.route("/:id").get(Controllers.getPostById);
+// router.post('/api/users/login', ()=>{
 
+// })
+
+// router.route("/landing").get(Controllers.renderHome); 
 module.exports = router;
