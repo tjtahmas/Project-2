@@ -46,7 +46,7 @@ app.use(express.json());
 // work on inheriting
 // work from server
  app.get('/', function(req, res) {
-    res.render("home");
+    res.render("create-character");
  });
  app.get('/character', function(req, res) {
     res.render("character");

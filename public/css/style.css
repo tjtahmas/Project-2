@@ -16,9 +16,18 @@ body {
   font-family: 'Libre Baskerville', serif;
   margin: 0;
   color: #333;
+  background-image: url(/public/images/png/cherryRedDragon.png);
   background: #000000;
-  background-image: url(../images/dragons/red.png);
+  
+
 }
+
+header { 
+  margin-bottom: 25rem;
+}
+
+
+
 
 h1 {
   -webkit-text-stroke-width: .25px;
@@ -32,8 +41,8 @@ ul {
   padding: 0;
 }
 
-a {
-  color: rgb(135, 67, 67);
+a.no-decor {
+  color: whitesmoke;
   text-decoration: none;
 }
 
@@ -87,7 +96,7 @@ header.inner {
   box-shadow: var(--box-shadow);
 }
 
-/* More Buttons */
+/* Buttons */
 .btn {
   color: #fff;
   padding: 0.6rem;
@@ -111,7 +120,7 @@ header.inner {
   border: 1px solid var(--primary-hover-color);
 }
 
-/* utilize: maybe? */
+/* Home Search */
 .search-wrap {
   background: url('./') no-repeat center center fixed / cover;
   height: 100vh;
@@ -179,7 +188,7 @@ input[type='search'] {
   opacity: .75;
 }
 
-/* users */
+/* Gigs */
 .user-info {
   background: var(--bg-color);
   border-bottom: 4px solid var(--primary-color);
@@ -199,7 +208,7 @@ input[type='search'] {
   padding: 0.6rem;
 }
 
-.user-info .tech span {
+.user-info .time span {
   color: var(--primary-color);
 } */
 
@@ -232,6 +241,7 @@ input[type='search'] {
   text-align: center;
   font-size: 18px;
 }
+
 
 label {
   display: block;
@@ -272,7 +282,7 @@ label {
     padding: 2.3rem;
   }
 
-  .user-info ul {
+  .multi-use ul {
     flex-direction: column;
   }
 
