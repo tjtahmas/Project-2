@@ -5,7 +5,7 @@
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
     <div id="id01" class="modal">
-{{!-- action and methos are ready to go. may need to reroute files --}}
+{{!-- action and method are ready to go. may need to reroute files --}}
       <form class="modal-content animate" action="/login/add" method="post">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close"
@@ -16,14 +16,14 @@
 
         <div class="container" id="form-font-properties">
           <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <input type="text" placeholder="Enter Username" name="uname" >
 
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="psw" >
 
           <button type="submit">Enter Realm</button>
           <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
+            <input type="checkbox" checked="checked" name="remember"> 
           </label>
         </div>
 

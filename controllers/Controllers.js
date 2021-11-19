@@ -1,4 +1,4 @@
-const Post = require('../models/Post');
+const Post = require('../models/post');
 
 exports.getMyGrps = async (req, res, next) => {
     try {
