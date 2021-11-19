@@ -3,7 +3,7 @@ require("dotenv").config();
 const router = require("./routes/Routes")
 const express = require('express');
 const sequelize = require('./config/connection');
-
+const bodyParser = require('body-parser');
 
 // handlebars related technologies
 
@@ -35,6 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /***/// Middleware
 app.use(express.json());
+
+// Body Parser
+app.use(bodyParser.urlencoded({ extended: false }));
 // app.use("/:user_name", router);
 
 // redirect routes
