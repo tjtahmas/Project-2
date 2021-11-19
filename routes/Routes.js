@@ -9,7 +9,9 @@ const Controllers = require('../controllers/Controllers');
  * post new group data
  */
 router.route("/").get(Controllers.getMyGrps).post(Controllers.createGroup);
+// make this inheritable
 
+// router.route("/test").get(Controlle)
 //get groups, 
 router.route("/:group_name").get(Controllers.getGroup);
 

@@ -1,18 +1,16 @@
 /***/
 require("dotenv").config(); 
 const router = require("./routes/Routes")
-
-
 const express = require('express');
 const sequelize = require('./config/connection');
-// const PORT = process.env.PORT || 3001;
+
 
 // handlebars related technologies
-const session = require('express-session');
+
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 const path = require('path');
-const helpers = require('./utils/helpers');
+
 
 
 
@@ -25,46 +23,47 @@ const PORT = process.env.PORT || 3001;
 
 
 
-// Set handlabrs with helpers?
-// const hbs = exphbs.create({ helpers });
 
-// const sess = {
-//   secret: 'Super secret secret',
-//   cookie: {},
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize
-//   })
-// };
-
-// app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('./routes/Routes'));
+// app.use(require('./routes/Routes'));
 
 
-// Necessary? yay or nay
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(routes);
-// sequelize.sync({ force: false }).then(() => {
-//   app.listen(PORT, () => console.log('Now listening'));
-// });
 
 
 /***/// Middleware
 app.use(express.json());
-app.use("/:user_name", router);
+// app.use("/:user_name", router);
+
+// redirect routes
 
 //router.route("/").get(Controllers.getMyGrps);
 
- app.get('/', function(req, res){
-    // res.send("Homepage!");
+
+// utilize req.param(s) to target correct routes ( get and post requests concerned)
+// work on inheriting
+// work from server
+ app.get('/', function(req, res) {
+    res.render("home");
 
 });
+
+ app.get('/login', function(req, res) {
+    res.render("login");
+ });
+
+ app.get('/landing', function(req, res) {
+    res.render("landing");
+ });
+
+ app.get('/group', function(req, res) {
+    res.render("group");
+ });
+
+
+
 
 sequelize.sync({force: true}).then(()=>{
     app.listen(PORT, () => {
