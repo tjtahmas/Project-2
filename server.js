@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // utilize req.param(s) to target correct routes ( get and post requests concerned)
 // work on inheriting
 // work from server
- app.get('/', function(req, res) {
+ app.get('/create-character', function(req, res) {
     res.render("create-character");
  });
  app.get('/character', function(req, res) {
@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
- app.get('/login', function(req, res) {
+ app.get('/', function(req, res) {
     res.render("login");
  });
 
