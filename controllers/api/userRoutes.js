@@ -6,7 +6,7 @@ const { User } = require('../../models');
 router.post('/login', async (req, res) => {
     try {
         // Find user that matches posted email address
-        const userData = await User.findOne({ where: { email: req.body.email } });
+        const userData = await User.findOne({ where: { user_name: req.body.user_name } });
 
         if (!UserData) {
             res.status(400).json({ message: 'Incorrect email or password, try again' });
