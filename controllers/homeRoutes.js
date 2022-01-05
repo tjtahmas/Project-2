@@ -5,15 +5,15 @@ const withAuth = require('../utils/auth')
 
 router.get('/', async (req,res) => {
     try {
-        const userData = await User.findAll({
-            attributes: { excluse: ['password']},
-            order: [['user_name', 'ASC']],
+        const groupData = await Group.findAll({
+            order: [['group_name', 'ASC']],
         });
 
-        const users = userData.map((project) => project.get({ plain:true }));
+        const groups = groupData.map((project) => project.get({ plain:true }));
 
-        res.render('login', {
-            users,
+        console.log(groupData)
+        res.render('group', {
+            groups,
             // Pass logged in flag to template
             // logged_in: req.session.logged_in,
         });
