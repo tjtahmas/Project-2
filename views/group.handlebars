@@ -2,12 +2,14 @@
 {{#each groups as |group| }}
 <section id="user-infos" class="container group-group">
   <div class="user-info group-name">
-    <h3>{{group_name}}</h3>
+    <h1>{{group_name}}</h1>
+    <br/>
     <h5>{{campaign}}</h5>
-    <p>{{announcement}}</p>
+    <br/>
     <ul>
       <li>
-        <h3>Members: {{members}} Dungeon Master: {{dun_master_id}}</h3>
+        <h5>Members: {{members}}</h5>
+        <h5> Dungeon Master: {{dun_master_id}}</h5>
       </li>
       <li><a href="#" class="btn btn-reverse">Member1</a></li>
       <li><a href="#" class="btn btn-reverse">Member2</a></li>

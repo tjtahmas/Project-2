@@ -3,7 +3,7 @@ const res = require('express/lib/response');
 const { User, Group } = require('../models');
 const withAuth = require('../utils/auth')
 
-router.get('/', async (req,res) => {
+router.get('/', withAuth, async (req,res) => {
     try {
         const groupData = await Group.findAll({
             order: [['group_name', 'ASC']],

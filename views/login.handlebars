@@ -1,42 +1,31 @@
-{{!-- Landing Page --}}
+<section id="search" class="search-wrap">
+  <h1>Round Table</h1>
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
-  <section id="search" class="search-wrap">
-    <h1>Round Table</h1>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  <div id="id01" class="modal">
 
-    <div id="id01" class="modal">
-{{!-- action and method are ready to go. may need to reroute files --}}
-      <form class="modal-content animate" action="/api/users/login" method="post">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-          <img class="fable" src="../images/dragons/d50u4bb-90d0b838-5dcb-4c61-8519-f72355fbd0ff.png" alt=""
-            class="avatar">
-        </div>
+    <form class="modal-content animate login-form">
 
-        <div class="container" id="form-font-properties">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" >
+      <br />
+      <br />
+      <div class="container" id="form-font-properties">
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" >
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname">
 
-          <button type="submit">Enter Realm</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> 
-          </label>
-        </div>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw">
+        <br />
+        <br />
 
-        <div class="container" style="background-color:#00000054">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'"
-            class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </form>
-    </div>
+        <button type="submit">Enter Realm</button>
 
-  
-</div>
+      </div>
+      <br />
+      <br />
+    </form>
+  </div>
 </section>
-  <script src="../js/style-form.js"></script>
-  <script src="/js/login.js"></script>
+
+<script src="../js/style-form.js"></script>
+<script src="/js/login.js"></script>
