@@ -11,7 +11,6 @@ router.get('/', withAuth, async (req,res) => {
 
         const groups = groupData.map((project) => project.get({ plain:true }));
 
-        console.log(groupData)
         res.render('group', {
             groups,
             // Pass logged in flag to template
@@ -32,14 +31,6 @@ router.get('/login', (req,res) => {
     res.render('login');
 });
 
-// router.get('/group', (req,res => {
-//     try {
-//         const groupData = await Group.findAll({
-//             where: {
 
-//             }
-//         })
-//     }
-// }))
 
 module.exports = router;

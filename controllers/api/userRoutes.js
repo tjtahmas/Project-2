@@ -6,9 +6,12 @@ const { User } = require('../../models');
 router.post('/login', async (req, res) => {
     try {
         // Find user that matches posted email address
-        const userData = await User.findOne({ where: { user_name: req.body.user_name } });
+        const userData = await User.findOne({ where: { user_name: req.body.username } });
 
-        if (!UserData) {
+        console.log(req.body)
+        console.log(userData);
+
+        if (!userData) {
             res.status(400).json({ message: 'Incorrect email or password, try again' });
             return;
         }
@@ -16,8 +19,11 @@ router.post('/login', async (req, res) => {
         //Verify password
         const validPassword = await userData.checkPassword(req.body.password);
 
+        console.log(validPassword)
+
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect email or password, try again'});
+            return;
         }
 
         //Create session variables based on logged in user
