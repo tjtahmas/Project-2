@@ -12,8 +12,6 @@ router.get('/', withAuth, async (req, res) => {
             where: { user_id: req.session.user_id }
         });
 
-        console.log(userGroupData);
-
         if (userGroupData) {
             const groupData = [];
 
@@ -27,10 +25,8 @@ router.get('/', withAuth, async (req, res) => {
             groups = groupData.map((project) => project.get({ plain: true }));
         }
 
-
-
         res.render('group', {
-            groups,
+            groups, loggedIn: req.session.logged_in
             // Pass logged in flag to template
             // logged_in: req.session.logged_in,
         });
@@ -46,7 +42,7 @@ router.get('/login', (req, res) => {
         return;
     }
 
-    res.render('login');
+    res.render('login', {loggedIn: req.session.logged_in});
 });
 
 
