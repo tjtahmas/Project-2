@@ -2,7 +2,7 @@
 {{#each groups as |group| }}
 <section id="user-infos" class="container group-group">
   <div class="user-info group-name">
-    <h1>{{group_name}}</h1>
+    <h1 class="group-link"><a href="/groups/{{id}}">{{group_name}}</a></h1>
     <br/>
     <h5>{{campaign}}</h5>
     <br/>
@@ -25,3 +25,5 @@
 {{else}}
 <p>No group available.</p>
 {{/each}}
+
+<script src="/js/group.js"></script>

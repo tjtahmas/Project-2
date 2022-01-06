@@ -1,15 +1,33 @@
 const router = require('express').Router();
 const res = require('express/lib/response');
-const { User, Group } = require('../models');
+const { User, Group, UserGroup } = require('../models');
 const withAuth = require('../utils/auth')
 
-router.get('/', withAuth, async (req,res) => {
+router.get('/', withAuth, async (req, res) => {
+
+    let groups = [];
+
     try {
-        const groupData = await Group.findAll({
-            order: [['group_name', 'ASC']],
+        const userGroupData = await UserGroup.findAll({
+            where: { user_id: req.session.user_id }
         });
 
-        const groups = groupData.map((project) => project.get({ plain:true }));
+        console.log(userGroupData);
+
+        if (userGroupData) {
+            const groupData = [];
+
+            for (i = 0; i < userGroupData.length; i++) {
+                let newGroupData = await Group.findOne({
+                    where: { id: userGroupData[i].group_id }
+                })
+                groupData[i] = newGroupData;
+            };
+
+            groups = groupData.map((project) => project.get({ plain: true }));
+        }
+
+
 
         res.render('group', {
             groups,
@@ -21,7 +39,7 @@ router.get('/', withAuth, async (req,res) => {
     }
 });
 
-router.get('/login', (req,res) => {
+router.get('/login', (req, res) => {
     // If a session exists, redirect to the homepage
     if (req.session.logged_in) {
         res.redirect('/');
