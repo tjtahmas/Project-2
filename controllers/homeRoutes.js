@@ -14,6 +14,8 @@ router.get('/', withAuth, async (req, res) => {
             where: { user_id: req.session.user_id }
         });
 
+        console.log(userGroupData);
+
         if (userGroupData) {
             const groupData = [];
 
@@ -22,6 +24,8 @@ router.get('/', withAuth, async (req, res) => {
                 let newGroupData = await Group.findOne({
                     where: { id: userGroupData[i].group_id }
                 })
+
+                console.log(i)
 
                 // Find user data for the user that matches the group's dungeon master id
                 // In order to display Dungeon Master name along with group
@@ -37,11 +41,11 @@ router.get('/', withAuth, async (req, res) => {
                 })
                 // Find data for each user in groups the user belongs to
                 
-                for (i = 0; i < newUserGroupData.length; i++){
+                for (j = 0; j < newUserGroupData.length; j++){
                     let newGroupUserData = await User.findOne({
-                        where: { id: newUserGroupData[i].user_id }
+                        where: { id: newUserGroupData[j].user_id }
                     })
-                    member[i] = newGroupUserData;
+                    member[j] = newGroupUserData;
                 }
                 newGroupData.dataValues.member = member;
                 newGroupData.dataValues.members = member.length;
@@ -50,9 +54,6 @@ router.get('/', withAuth, async (req, res) => {
             };
 
             groups = groupData.map((project) => project.get({ plain: true }));
-
-            console.log(groups)
-
         }
 
         res.render('group', {

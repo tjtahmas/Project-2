@@ -11,8 +11,8 @@
       <li>
         <h5>Members: {{members}}</h5>
       </li>
-      {{#each members as |members| }}
-      <li><a href="/user/{{id}}" class="btn btn-reverse">{{user_name}}</a></li>
+      {{#each groups.members as |members| }}
+      <li><a href="/user/{{members.id}}" class="btn btn-reverse">{{members.user_name}}</a></li>
       {{/each}}
     </ul>
     <div class="time">
