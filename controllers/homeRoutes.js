@@ -19,10 +19,18 @@ router.get('/', withAuth, async (req, res) => {
                 let newGroupData = await Group.findOne({
                     where: { id: userGroupData[i].group_id }
                 })
+
+                let dungeonMaster = await User.findOne({
+                    where: { id: newGroupData.dun_master_id }
+                })
+
+                newGroupData.dataValues.dungeonMaster = dungeonMaster.user_name;
+
                 groupData[i] = newGroupData;
             };
 
             groups = groupData.map((project) => project.get({ plain: true }));
+
         }
 
         res.render('group', {
