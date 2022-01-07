@@ -113,9 +113,23 @@ router.get('/group/:id', withAuth, async (req,res) => {
 });
 
 // GET one user
+// This is how you properly find additional data using findByPk
+// This is the whole point of using a relational data, i.e. MySQL
+// Glad I found it out but boy this would've been nice when I was making the homepage
+// Literally did all that findByPk work myself. Ridiculous. Rookie moves.
+// Learned a valuable lesson though. Trust those PKs. 
 router.get('/user/:id', withAuth, async (req,res) => {
     try {
-        const userData = await User.findByPk(req.params.id);
+        const userData = await User.findByPk(req.params.id, {
+            include: [
+                UserGroup,
+                {
+                    model: Group
+                }
+            ]
+        });
+
+        console.log(userData.groups[0]);
 
         const user = userData.get({ plain: true });
 
