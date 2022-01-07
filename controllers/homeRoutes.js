@@ -32,19 +32,7 @@ router.get('/', withAuth, async (req, res) => {
                     where: { id: newGroupData.dun_master_id }
                 })
                 newGroupData.dataValues.dungeonMaster = dungeonMaster.user_name;
-
-
-                //console.log(userGroupData[i].id)
-                // let otherUserGroupData = await UserGroup.findAll({
-                //     where: { group_id: userGroupData[i].id}
-                // })
-
-                // for (j = 0; j < otherUserGroupData.length; j++){
-                //     let newMember = await User.findOne({
-                //         where: { id: otherUserGroupData[j].user_id }
-                //     })
-
-                // }
+                newGroupData.dataValues.dungeonMasterId = dungeonMaster.id;
 
                 // Find all users for each group the user belongs to
                 // In order to display member information along with group
@@ -52,15 +40,15 @@ router.get('/', withAuth, async (req, res) => {
                     where: { group_id: newGroupData.id}
                 })
 
-                console.log(newUserGroupData)
-
                 // Find data for each user in groups the user belongs to
                 
                 for (j = 0; j < newUserGroupData.length; j++){
                     let newGroupUserData = await User.findOne({
                         where: { id: newUserGroupData[j].user_id }
                     })
+                    
                     member[j] = newGroupUserData;
+                    console.log(member[j])
                 }
                 newGroupData.dataValues.member = member;
                 newGroupData.dataValues.members = member.length;
@@ -69,6 +57,8 @@ router.get('/', withAuth, async (req, res) => {
             };
 
             groups = groupData.map((project) => project.get({ plain: true }));
+            //console.log(groups.member)
+
         }
 
         res.render('group', {

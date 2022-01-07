@@ -39,9 +39,11 @@
         <li>
           <a class="no-decor" href="/login">Login</a>
         </li> --}}
+        {{#if loggedIn}}
         <li>
           <button id="logout" class="no-decor">Logout</button>
         </li>
+        {{/if}}
       </ul>
     </nav>
   </header>
