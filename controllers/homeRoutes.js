@@ -6,7 +6,6 @@ const withAuth = require('../utils/auth')
 router.get('/', withAuth, async (req, res) => {
 
     let groups = [];
-    let member = [];
 
     try {
         // Identify which groups the user belongs to
@@ -20,12 +19,12 @@ router.get('/', withAuth, async (req, res) => {
             const groupData = [];
 
             for (i = 0; i < userGroupData.length; i++) {
+                let member = [];
+
                 // Find data for each group the user belongs to
                 let newGroupData = await Group.findOne({
                     where: { id: userGroupData[i].group_id }
                 })
-
-                console.log(i)
 
                 // Find user data for the user that matches the group's dungeon master id
                 // In order to display Dungeon Master name along with group
@@ -34,11 +33,27 @@ router.get('/', withAuth, async (req, res) => {
                 })
                 newGroupData.dataValues.dungeonMaster = dungeonMaster.user_name;
 
+
+                //console.log(userGroupData[i].id)
+                // let otherUserGroupData = await UserGroup.findAll({
+                //     where: { group_id: userGroupData[i].id}
+                // })
+
+                // for (j = 0; j < otherUserGroupData.length; j++){
+                //     let newMember = await User.findOne({
+                //         where: { id: otherUserGroupData[j].user_id }
+                //     })
+
+                // }
+
                 // Find all users for each group the user belongs to
                 // In order to display member information along with group
                 let newUserGroupData = await UserGroup.findAll({
                     where: { group_id: newGroupData.id}
                 })
+
+                console.log(newUserGroupData)
+
                 // Find data for each user in groups the user belongs to
                 
                 for (j = 0; j < newUserGroupData.length; j++){
