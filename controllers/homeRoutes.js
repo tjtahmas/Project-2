@@ -3,6 +3,9 @@ const res = require('express/lib/response');
 const { User, Group, UserGroup } = require('../models');
 const withAuth = require('../utils/auth')
 
+// GET group and other info for homepage
+// I understand this part of the code is very clunky. I'm not using findByPk, which is the smarter way to retrieve this data. 
+// I'll fix it eventually once I get the website working the way I want. For now, if it ain't broke don't fix it. 
 router.get('/', withAuth, async (req, res) => {
 
     let groups = [];
@@ -61,7 +64,7 @@ router.get('/', withAuth, async (req, res) => {
 
         }
 
-        res.render('group', {
+        res.render('homepage', {
             groups, loggedIn: req.session.logged_in
             // Pass logged in flag to template
             // logged_in: req.session.logged_in,
@@ -71,6 +74,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+// GET login page
 router.get('/login', (req, res) => {
     // If a session exists, redirect to the homepage
     if (req.session.logged_in) {
@@ -79,6 +83,47 @@ router.get('/login', (req, res) => {
     }
 
     res.render('login', {loggedIn: req.session.logged_in});
+});
+
+// GET one group
+router.get('/group/:id', withAuth, async (req,res) => {
+    try {
+        const groupData = await Group.findOne({
+            where: {id: req.params.id}
+        })
+        // const groupData = await Group.findByPk(req.params.id, {
+        //     include: [
+        //         User,
+        //         {
+        //             model: Character
+        //         }
+        //     ]
+        // });
+
+        const group = groupData.get({ plain: true });
+        const isDM = (group.dun_master_id == req.session.user_id);
+
+        console.log(isDM);
+
+        res.render('group', { group, loggedIn: req.session.logged_in, isDM })
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }    
+});
+
+// GET one user
+router.get('/user/:id', withAuth, async (req,res) => {
+    try {
+        const userData = await User.findByPk(req.params.id);
+
+        const user = userData.get({ plain: true });
+
+        res.render('user', { user, loggedIn: req.session.logged_in })
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 

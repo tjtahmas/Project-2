@@ -1,0 +1,25 @@
+<h1>Groups</h1>
+{{#each groups as |group| }}
+<section id="user-infos" class="container group-group">
+  <div class="user-info group-name">
+    <h1 class="group-link"><a href="/group/{{id}}">{{group_name}}</a></h1>
+    <br/>
+    <h5> Dungeon Master: <a href="/user/{{dungeonMasterId}}">{{dungeonMaster}}</a></h5>
+    <h5>Current Campaign: {{campaign}}</h5>
+    <br/>
+    <ul>
+      <li>
+        <h5>Members:</h5>
+      </li>
+      {{> homepage-members}}
+    </ul>
+    <div class="time">
+      <small>Meetings: <span>{{meetings}}</span></small>
+    </div>
+  </div>
+</section>
+{{else}}
+<p>No group available.</p>
+{{/each}}
+
+<script src="/js/group.js"></script>
