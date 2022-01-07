@@ -46,9 +46,19 @@ router.get('/', withAuth, async (req, res) => {
                     let newGroupUserData = await User.findOne({
                         where: { id: newUserGroupData[j].user_id }
                     })
+                    console.log(newGroupUserData.dataValues.id);
+                    //console.log(dungeonMaster.id)
+
+                    // if ( newGroupUserData.dataValues.id !== dungeonMaster.id){
+                    //     member.concat(newGroupUserData);
+                    //     console.log(member);
+                    // }
+
+
+                    
                     
                     member[j] = newGroupUserData;
-                    console.log(member[j])
+                    
                 }
                 newGroupData.dataValues.member = member;
                 newGroupData.dataValues.members = member.length;
@@ -57,7 +67,6 @@ router.get('/', withAuth, async (req, res) => {
             };
 
             groups = groupData.map((project) => project.get({ plain: true }));
-            //console.log(groups.member)
 
         }
 
