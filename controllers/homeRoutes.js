@@ -34,31 +34,22 @@ router.get('/', withAuth, async (req, res) => {
                 newGroupData.dataValues.dungeonMaster = dungeonMaster.user_name;
                 newGroupData.dataValues.dungeonMasterId = dungeonMaster.id;
 
-                // Find all users for each group the user belongs to
+                // Find all users for the group the user belongs to
                 // In order to display member information along with group
                 let newUserGroupData = await UserGroup.findAll({
                     where: { group_id: newGroupData.id}
                 })
 
-                // Find data for each user in groups the user belongs to
-                
+                // Find data for each user in the group the user belongs to
                 for (j = 0; j < newUserGroupData.length; j++){
                     let newGroupUserData = await User.findOne({
                         where: { id: newUserGroupData[j].user_id }
                     })
-                    console.log(newGroupUserData.dataValues.id);
-                    //console.log(dungeonMaster.id)
-
-                    // if ( newGroupUserData.dataValues.id !== dungeonMaster.id){
-                    //     member.concat(newGroupUserData);
-                    //     console.log(member);
-                    // }
-
-
                     
-                    
-                    member[j] = newGroupUserData;
-                    
+                    // If the user is the DM, don't add them to the member list. They already have a link in the group info
+                    if ( newGroupUserData.dataValues.id != dungeonMaster.id){
+                        member[j] = newGroupUserData;
+                    }
                 }
                 newGroupData.dataValues.member = member;
                 newGroupData.dataValues.members = member.length;
