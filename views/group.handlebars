@@ -1,19 +1,30 @@
 <section class="group-info" class="container">
   <div class="information">
+    <div class="row">
+    <div class="col-md-6">
     <h1 id="title">{{group.group_name}}</h1>
     <h4 id="campaign">{{group.campaign}}</h4>
     <small>{{group.meetings}}</small>
-    <br /><br />
-    <p id="announcement">{{group.announcement}}</p>
+    </div>
+    <div class="col-md-6 dmInfo">
+      <h4>DM: Username Here</h3>
+      <h6>Roll20: <a href="https://roll20.net">Group</a></h5>
+      <h6>Discord: <a href="https://discord.com">Discord</a></h5>
+    </div>
+    </div>
+    <br/><br/>
+    <h6>A word from your DM:</h6>
+    <div id="announcement"><p>{{group.announcement}}</p></div>
+    <br/>
     <h3>Members:</h3>
     <div class="row">
       <div class="col-md-4">
         <card>
-        <h2>Character Name</h2>
-        <h5>Owned By: User_name</h5>
-        <h4>Insert Race/ Class</h4>
-        <p>Description here, tells you a lot about the character</p>
-        <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
+          <h2>Character Name</h2>
+          <h5>Owned By: User_name</h5>
+          <h4>Insert Race/ Class</h4>
+          <p>Description here, tells you a lot about the character</p>
+          <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
         </card>
       </div>
     </div>

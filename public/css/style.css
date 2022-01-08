@@ -222,13 +222,15 @@ input[type='search'] {
 }
 
 .group-info .information {
-  margin: 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  padding: 25px;
+}
+
+.group-info .dmInfo {
+  text-align: right;
 }
 
 .group-info #title {
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 .group-info #campaign {
@@ -238,8 +240,16 @@ input[type='search'] {
 .group-info #announcement {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background: #4e4e4e;
-  border-radius:15px;
-  margin:25px;
+  border-radius: 5px;
+  border: black;
+  border-width: 5px;
+  margin: 5px;
+}
+
+.group-info #announcement p {
+  margin: 15px;
+  margin-top: 5px;
+  padding:10px;
 }
 
 .group-info .information card {
