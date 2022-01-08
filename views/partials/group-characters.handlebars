@@ -1,10 +1,11 @@
-{{#each member.character as |character|}}
+{{#each groupCharacters as |character|}}
 <div class="col-md-4">
     <div class="card">
-        <h2>Character Name</h2>
-        <h4>Insert Race/ Class</h4>
+        <h2>{{dataValues.character_name}}</h2>
+        <h4>{{dataValues.race}} {{dataValues.class}}</h4>
         <h5>Owned By: User_name</h5>        
-        <p>Description here, tells you a lot about the character</p>
+        <p>{{dataValues.description}}</p>
         <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
     </div>
 </div>
+{{/each}}

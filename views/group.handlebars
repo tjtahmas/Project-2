@@ -7,7 +7,7 @@
     <small>{{group.meetings}}</small>
     </div>
     <div class="col-md-6 dmInfo">
-      <h4>DM: Username Here</h3>
+      <h4>DM: <a href="/user/{{group.dun_master_id}}">{{group.dungeonMaster}}</a></h4>
       <h6>Roll20: <a href="https://roll20.net">Group</a></h5>
       <h6>Discord: <a href="https://discord.com">Discord</a></h5>
     </div>
@@ -18,42 +18,7 @@
     <br/>
     <h3>Members:</h3>
     <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <h2>Character Name</h2>
-          <h5>Owned By: User_name</h5>
-          <h4>Insert Race/ Class</h4>
-          <p>Description here, tells you a lot about the character</p>
-          <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <h2>Character Name</h2>
-          <h5>Owned By: User_name</h5>
-          <h4>Insert Race/ Class</h4>
-          <p>Description here, tells you a lot about the character</p>
-          <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <h2>Character Name</h2>
-          <h5>Owned By: User_name</h5>
-          <h4>Insert Race/ Class</h4>
-          <p>Description here, tells you a lot about the character</p>
-          <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <h2>Character Name</h2>
-          <h5>Owned By: User_name</h5>
-          <h4>Insert Race/ Class</h4>
-          <p>Description here, tells you a lot about the character</p>
-          <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
-        </div>
-      </div>
+      {{> group-characters}}
     </div>
   </div>
 

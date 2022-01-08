@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const res = require('express/lib/response');
-const { User, Group, UserGroup } = require('../models');
+const { User, Group, UserGroup, UserGroupCharacter, Character } = require('../models');
 const withAuth = require('../utils/auth')
 
 // GET group and other info for homepage
@@ -40,23 +40,23 @@ router.get('/', withAuth, async (req, res) => {
                 // Find all users for the group the user belongs to
                 // In order to display member information along with group
                 let newUserGroupData = await UserGroup.findAll({
-                    where: { group_id: newGroupData.id}
+                    where: { group_id: newGroupData.id }
                 })
 
                 // Find data for each user in the group the user belongs to
-                for (j = 0; j < newUserGroupData.length; j++){
+                for (j = 0; j < newUserGroupData.length; j++) {
                     let newGroupUserData = await User.findOne({
                         where: { id: newUserGroupData[j].user_id }
                     })
-                    
+
                     // If the user is the DM, don't add them to the member list. They already have a link in the group info
-                    if ( newGroupUserData.dataValues.id != dungeonMaster.id){
+                    if (newGroupUserData.dataValues.id != dungeonMaster.id) {
                         member[j] = newGroupUserData;
                     }
                 }
                 newGroupData.dataValues.member = member;
                 newGroupData.dataValues.members = member.length;
-                
+
                 groupData[i] = newGroupData;
             };
 
@@ -82,34 +82,57 @@ router.get('/login', (req, res) => {
         return;
     }
 
-    res.render('login', {loggedIn: req.session.logged_in});
+    res.render('login', { loggedIn: req.session.logged_in });
 });
 
 // GET one group
-router.get('/group/:id', withAuth, async (req,res) => {
+router.get('/group/:id', withAuth, async (req, res) => {
     try {
-        const groupData = await Group.findOne({
-            where: {id: req.params.id}
+        // Find Group and User data
+        const groupData = await Group.findByPk(req.params.id, {
+            include: [
+                UserGroup,
+                {
+                    model: User,
+                }
+            ]
+        });
+
+        // Find user data for the user that matches the group's dungeon master id
+        // In order to display Dungeon Master name along with group
+        let dungeonMaster = await User.findOne({
+            where: { id: groupData.dun_master_id }
         })
-        // const groupData = await Group.findByPk(req.params.id, {
-        //     include: [
-        //         User,
-        //         {
-        //             model: Character
-        //         }
-        //     ]
-        // });
+        groupData.dataValues.dungeonMaster = dungeonMaster.user_name;
+
+        // WE'RE BEING INEFFICIENT AGAIN!!!
+        // Find Character Data through UserGroup and UserGroupCharacter
+        const groupCharacters = [];
+        for (i = 0; i < groupData.userGroups.length; i++){
+            let newUGCData = await UserGroupCharacter.findByPk(groupData.userGroups[i].id, {
+                include: [
+                    Character
+                ]
+            });
+            if (newUGCData){
+                groupCharacters[i] = newUGCData.character;
+            }
+        }
+
+        console.log(groupCharacters)
+
+        // console.log(groupData.userGroups)
 
         const group = groupData.get({ plain: true });
         const isDM = (group.dun_master_id == req.session.user_id);
 
-        console.log(isDM);
+        // console.log(group);
 
-        res.render('group', { group, loggedIn: req.session.logged_in, isDM })
+        res.render('group', { group, loggedIn: req.session.logged_in, isDM, groupCharacters})
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-    }    
+    }
 });
 
 // GET one user
@@ -118,7 +141,7 @@ router.get('/group/:id', withAuth, async (req,res) => {
 // Glad I found it out but boy this would've been nice when I was making the homepage
 // Literally did all that findByPk work myself. Ridiculous. Rookie moves.
 // Learned a valuable lesson though. Trust those PKs. 
-router.get('/user/:id', withAuth, async (req,res) => {
+router.get('/user/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             include: [
