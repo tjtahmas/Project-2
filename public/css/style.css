@@ -196,6 +196,7 @@ input[type='search'] {
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: var(--box-shadow);
+  border-radius: 25px;
 }
 
 .user-info ul {
@@ -210,7 +211,42 @@ input[type='search'] {
 
 .user-info .time span {
   color: var(--primary-color);
-} */
+}
+
+.group-info {
+  background: var(--bg-color);
+  border:rgba(10, 0, 29, 0.7);
+  margin: 50px;
+  border-radius: 25px;
+  color: white;
+}
+
+.group-info .information {
+  margin: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.group-info #title {
+  color: var(--primary-color)
+}
+
+.group-info #campaign {
+  color: rgb(155, 155, 107)
+}
+
+.group-info #announcement {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: #4e4e4e;
+  border-radius:15px;
+  margin:25px;
+}
+
+.group-info .information card {
+  background: #3f0303;
+  margin: 15px;
+  border: 5px, #000000;
+}
 
 /* Form */
 .form-wrap {

@@ -1,71 +1,53 @@
-
- <section id="user-infos" class="container">
-  <h1>{{group.group_name}}</h1>
-  <h4>{{group.campaign}}</h4>
-  <small>{{group.meetings}}</small>
-  <br/><br/>
-  <p>{{group.announcement}}</p>
-  <h3>Members:</h3>
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Character Name</h2>
-      <h5>Owned By: User_name</h5>
-      <h4>Insert Race/ Class</h4>
-      <p>Description here, tells you a lot about the character</p>
-      <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
-    </div>
-    <div class="col-md-4">
-      <h2>Character Name</h2>
-      <h5>Owned By: User_name</h5>
-      <h4>Insert Race/ Class</h4>
-      <p>Description here, tells you a lot about the character</p>
-      <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
-    </div>
-    <div class="col-md-4">
-      <h2>Character Name</h2>
-      <h5>Owned By: User_name</h5>
-      <h4>Insert Race/ Class</h4>
-      <p>Description here, tells you a lot about the character</p>
-      <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
-    </div>
-    <div class="col-md-4">
-      <h2>Character Name</h2>
-      <h5>Owned By: User_name</h5>
-      <h4>Insert Race/ Class</h4>
-      <p>Description here, tells you a lot about the character</p>
-      <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
+<section class="group-info" class="container">
+  <div class="information">
+    <h1 id="title">{{group.group_name}}</h1>
+    <h4 id="campaign">{{group.campaign}}</h4>
+    <small>{{group.meetings}}</small>
+    <br /><br />
+    <p id="announcement">{{group.announcement}}</p>
+    <h3>Members:</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <card>
+        <h2>Character Name</h2>
+        <h5>Owned By: User_name</h5>
+        <h4>Insert Race/ Class</h4>
+        <p>Description here, tells you a lot about the character</p>
+        <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
+        </card>
+      </div>
     </div>
   </div>
 
-    {{!-- <h1>Campaign</h1>
-    <div class="user-info">
-      <h3>Current</h3>
-      <h5>Current Name</h5>
-      <div class="announce">
-        <h6>Announcements</h6>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aspernatur tempora nisi quibusdam doloribus
-          adipisci cumque quidem perferendis. Iusto, natus!</p>
-          
+  {{!-- <h1>Campaign</h1>
+  <div class="user-info">
+    <h3>Current</h3>
+    <h5>Current Name</h5>
+    <div class="announce">
+      <h6>Announcements</h6>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aspernatur tempora nisi quibusdam doloribus
+        adipisci cumque quidem perferendis. Iusto, natus!</p>
 
-      </div>
-      
-      <ul>
-        <li>
-          <h3>Players:</h3>
-        </li>
-        <li><a href="#" class="btn btn-reverse">Player1</a></li>
-        <li><a href="#" class="btn btn-reverse">Player2</a></li>
-        <li><a href="#" class="btn btn-reverse">Player3</a></li>
-        <li><a href="#" class="btn btn-reverse">Player4</a></li>
-        
-      </ul>
-      <div class="time">
-        <small>Meetings: <span>Day, Date, Month, Time</span></small>
-      </div>
+
     </div>
 
+    <ul>
+      <li>
+        <h3>Players:</h3>
+      </li>
+      <li><a href="#" class="btn btn-reverse">Player1</a></li>
+      <li><a href="#" class="btn btn-reverse">Player2</a></li>
+      <li><a href="#" class="btn btn-reverse">Player3</a></li>
+      <li><a href="#" class="btn btn-reverse">Player4</a></li>
+
+    </ul>
+    <div class="time">
+      <small>Meetings: <span>Day, Date, Month, Time</span></small>
+    </div>
+  </div>
 
 
 
-    </div> --}}
-  </section>
+
+  </div> --}}
+</section>
