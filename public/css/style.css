@@ -18,8 +18,12 @@ body {
   color: #333;
   background-image: url(/public/images/png/cherryRedDragon.png);
   background: #000000;
-  
+}
 
+body .page-title {
+  color: white;
+  margin-left: 30px;
+  margin-top: 15px;
 }
 
 header { 
