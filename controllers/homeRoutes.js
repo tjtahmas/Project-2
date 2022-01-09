@@ -108,25 +108,23 @@ router.get('/group/:id', withAuth, async (req, res) => {
         // WE'RE BEING INEFFICIENT AGAIN!!!
         // Find Character Data through UserGroup and UserGroupCharacter
         const groupCharacters = [];
-        for (i = 0; i < groupData.userGroups.length; i++){
-            let newUGCData = await UserGroupCharacter.findByPk(groupData.userGroups[i].id, {
+        for (i = 0; i < groupData.users.length; i++){
+            let newUGCData = await UserGroupCharacter.findByPk(groupData.users[i].userGroup.id, {
                 include: [
                     Character
                 ]
             });
             if (newUGCData){
                 groupCharacters[i] = newUGCData.character;
+                groupCharacters[i].user_name = groupData.users[i].user_name;
+                groupCharacters[i].user_id = groupData.users[i].id;
             }
         }
 
         console.log(groupCharacters)
 
-        // console.log(groupData.userGroups)
-
         const group = groupData.get({ plain: true });
         const isDM = (group.dun_master_id == req.session.user_id);
-
-        // console.log(group);
 
         res.render('group', { group, loggedIn: req.session.logged_in, isDM, groupCharacters})
     } catch (err) {
