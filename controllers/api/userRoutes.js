@@ -3,6 +3,21 @@ const req = require('express/lib/request');
 const res = require('express/lib/response');
 const { User } = require('../../models');
 
+router.post('/', async (req,res) => {
+    try {
+        console.log('DOING THE POST ROUTE');
+        console.log(req.body);
+        const newUser = await User.creat({
+            user_name: req.body.user_name,
+            email: req.body.email,
+            password: req.body.password,
+        })
+        res.status(200).json(newUser)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
 router.post('/login', async (req, res) => {
     try {
         // Find user that matches posted email address

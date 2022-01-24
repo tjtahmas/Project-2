@@ -161,6 +161,14 @@ router.get('/user/:id', withAuth, async (req, res) => {
     }
 });
 
+router.get('/new-user', async (req,res) => {
+    try {
+        res.render('new-user')
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.get('/new-group', withAuth, async (req,res) => {
     try {
         res.render('new-group', { loggedIn: req.session.logged_in, user_id: req.session.user_id })
