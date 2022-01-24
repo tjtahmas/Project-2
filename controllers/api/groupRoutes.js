@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
     try {
         const newGroup = await Group.create({
             group_name: req.body.group_name,
-            dun_master_id: req.body.dun_master_id,
+            dun_master_id: req.session.user_id,
             meetings: req.body.meetings,
             campaign: req.body.campaign
         })
