@@ -8,7 +8,7 @@ const newGroup = async (event) => {
     const campaign = document.querySelector('.group-campaign').value.trim();
     const meetings = document.querySelector('.group-meetings').value.trim();
 
-    if (groupName) {
+    if (group_name) {
         // Send a POST request to API
         const response = await fetch('/api/groups/', {
             method: 'POST',
@@ -25,5 +25,5 @@ const newGroup = async (event) => {
 }
 
 document
-    .querySelector('.user-form')
-    .addEventListener('submit', newUser);
+    .querySelector('.new-group-form')
+    .addEventListener('submit', newGroup);

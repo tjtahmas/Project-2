@@ -7,7 +7,7 @@ router.post('/', async (req,res) => {
     try {
         console.log('DOING THE POST ROUTE');
         console.log(req.body);
-        const newUser = await User.creat({
+        const newUser = await User.create({
             user_name: req.body.user_name,
             email: req.body.email,
             password: req.body.password,
