@@ -22,10 +22,10 @@ Group.init({
       key: 'id',
     }
   },
-  members: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
+  // members: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: false,
+  // },
   meetings: {
     type: DataTypes.STRING(100),
   },
