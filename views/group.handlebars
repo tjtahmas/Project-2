@@ -1,7 +1,32 @@
 {{#if isDM}}
-<form class="edit-group">
-  <button id="edit-group"><a href="edit-group">Edit Group</a></button>
-</form>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Edit Group</button>
+
+  <div id="id01" class="modal">
+
+    <form class="modal-content animate login-form">
+
+      <br />
+      <br />
+      <div class="container" id="form-font-properties">
+
+        <label for="uname"><b>Campaign</b></label>
+        <input type="text" placeholder="Lost Mine of Phandelver" id="uname">
+
+        <label for="psw"><b>Meetings</b></label>
+        <input type="text" placeholder="Mondays @ 5:00PM EST" id="psw">
+
+        <label for="announcement"><b>Announcement</b></label>
+        <textarea type="text" style="height:200px; width: 100%" placeholder="Don't forget to make your characters!" id="form-announcement"></textarea>
+        <br />
+        <br />
+
+        <button type="submit">Update Group</button>
+
+      </div>
+      <br />
+      <br />
+    </form>
+  </div>
 {{/if}}
 <section class="group-info" class="container">
   <div class="information">
@@ -24,6 +49,9 @@
     <h6>A word from your DM:</h6>
     <div id="announcement">
       <p>{{group.announcement}}</p>
+      {{#unless group.announcement}}
+        <p>Click 'Edit Group' to create your DM announcement!</p>
+      {{/unless}}
     </div>
     <br />
     <h3>Members:</h3>
