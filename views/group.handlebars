@@ -1,21 +1,31 @@
+{{#if isDM}}
+<form class="edit-group">
+  <button id="edit-group"><a href="edit-group">Edit Group</a></button>
+</form>
+{{/if}}
 <section class="group-info" class="container">
   <div class="information">
     <div class="row">
-    <div class="col-md-6">
-    <h1 id="title">{{group.group_name}}</h1>
-    <h4 id="campaign">{{group.campaign}}</h4>
-    <small>{{group.meetings}}</small>
+      <div class="col-md-6">
+        <div class="group-info-title">
+          <h1 id="title">{{group.group_name}}</h1>
+          <small id="group-id">ID: {{group.id}}</small>
+        </div>
+        <h4 id="campaign">{{group.campaign}}</h4>
+        <small>{{group.meetings}}</small>
+      </div>
+      <div class="col-md-6 dmInfo">
+        <h4>DM: <a href="/user/{{group.dun_master_id}}">{{group.dungeonMaster}}</a></h4>
+        <h6>Roll20: <a href="https://roll20.net">Group</a></h5>
+          <h6>Discord: <a href="https://discord.com">Discord</a></h5>
+      </div>
     </div>
-    <div class="col-md-6 dmInfo">
-      <h4>DM: <a href="/user/{{group.dun_master_id}}">{{group.dungeonMaster}}</a></h4>
-      <h6>Roll20: <a href="https://roll20.net">Group</a></h5>
-      <h6>Discord: <a href="https://discord.com">Discord</a></h5>
-    </div>
-    </div>
-    <br/><br/>
+    <br /><br />
     <h6>A word from your DM:</h6>
-    <div id="announcement"><p>{{group.announcement}}</p></div>
-    <br/>
+    <div id="announcement">
+      <p>{{group.announcement}}</p>
+    </div>
+    <br />
     <h3>Members:</h3>
     <div class="row">
       {{> group-characters}}

@@ -235,7 +235,7 @@ input[type='search'] {
 }
 
 .group-info #campaign {
-  color: rgb(155, 155, 107)
+  color: rgb(155, 155, 107);
 }
 
 .group-info #announcement {
@@ -258,6 +258,17 @@ input[type='search'] {
   margin:8px;
   padding: 15px;
   border: 5px, #000000;
+}
+
+.group-info .group-info-title {
+  display: flex;
+  align-content: bottom;
+}
+
+
+.group-info #group-id {
+  color: gray;
+  margin: 15px;
 }
 
 /* Form */
