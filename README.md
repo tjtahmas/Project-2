@@ -36,7 +36,7 @@ Soon:
 ## Credit
 The GitHub Repository is at https://github.com/tjtahmas/Project-2
 
-Ian Greenblott (Zartender on GitHub) and Landon Hinkle(llh9 on GitHub) helped create this project along with myself as part of The Ohio State University Full Stack Coding Bootcamp for our second project.
+Ian Greenblott ([Zartender](https://github.com/Zartender) on GitHub) and Landon Hinkle ([llh9](https://github.com/llh9) on GitHub) helped create this project along with myself as part of The Ohio State University Full Stack Coding Bootcamp for our second project.
 
 If you have any questions or comments about the project, feel free to contact me at tjtahmas@gmail.com
 
