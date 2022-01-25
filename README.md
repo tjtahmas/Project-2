@@ -1,79 +1,66 @@
-
-## Title: Round Table 
-
-Dungeons and Dragons Campaign, Character, and Group 
-
+# D&D Round Table
 
 ## Description
 
-Dungeons & Dragons "D&D", can be an intimidating game for any new player. We set out to make an app to simplify the basics necessary to play D&D and implement those basics in Dungeons and Dragons Beyond (See Below Link).
+D&D Round Table is a web app for creating and organizing new Dungeons and Dragons groups to prepare your players for your first session. It utilizes Node.js, a MySQL database, and Handlbars for the views (along with heavy use of Bootstrap for the styling). D&D Round Table was built to give new players and Dungeon Master's a place to communicate effectively before they start playing, with information like meeting times, the current campaign, and links to Roll20, Discord, and the player's DnDBeyond pages. I practiced my skills with JavaScript models (using Sequelize), REST APIs (with Express), database creation (seed files, etc.), and creating views with Handlebars while creating this project.
 
-## References
+## Table of Contents
 
-Click [here](https://www.dndbeyond.com/) to visit a more immersive website for everything dungeons and dragons.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
-## DEPLOYED Site
+## Installation
 
-Click [here](https://ginseng-pirate-12.herokuapp.com/) to visit our deployed Heroku website.
+If you wish to improve upon D&D Round Table or tweak it for your own uses, begin by forking this repository in GitHub for yourself, or download the files from this repository. Once you have the files set up locally on your own device, open your preferred editor (I used VSCode) and open a terminal in the outermost folder. Run "npm install" to download the appropriate packages (assuming your Node.js is up to date), and launch the server either using "npm start" or "nodemon server.js" (nodemon is best for development). From here, navigate to https://localhost:3001 in your preferred browser to view the application. Happy Hacking!
 
-## Our Working Repo
+## Usage
 
-Click [here](https://github.com/tjtahmas/Project-2) to visit our deployed Heroku website.
+To visit D&D Round Table, check out the deployed site here: https://ginseng-pirate-12.herokuapp.com/. I will attempt to keep this site as up to date ass possible, although the repository may be ahead at times.
 
-## Contributors/Partners
+First, you will want to create a new user for yourself. Begin by clicking "Sign Up" at the bottom of the login page. Enter your username, email, and password to create a new user. Once you've created a new user, select 'Login' to enter your username and password, and click 'Enter Realm' to navigate to the homepage. 
 
-[Landon Hinkle](https://github.com/llh9), (https://www.linkedin.com/in/landon-hinkle-7b5907137/)
+Currently, you can:
+ - View your groups
+ - Create a new group for yourself
+ - Edit group information (if you are the DM)
 
-[TJ Tahmassebi](https://github.com/tjtahmas), (https://www.linkedin.com/in/thomas-tahmassebi-79880714a/)
+Soon:
+ - Add group by ID
+ - Create a new Character as a player
+ - Edit Character
+ - Delete Group (if you are the DM)
+ - Delete Character (if you are the owner)
 
-[Ian Greenblott](https://github.com/zartender), (https://www.linkedin.com/in/greenblott)
+## Credit
+The GitHub Repository is at https://github.com/tjtahmas/Project-2
 
-## Overview of Technology 
+Ian Greenblott (Zartender on GitHub) and Landon Hinkle(llh9 on GitHub) helped create this project along with myself as part of The Ohio State University Full Stack Coding Bootcamp for our second project.
 
-Rather than hardcode the HTML for many, many pages, we can dynamically generate the HTML using a template engine. In implementing a template engine, we are separating the concern of client-side rendering from other aspects of the application. This is the **View** layer in the MVC framework. The template engine we utilized is Handlebars.js.
+If you have any questions or comments about the project, feel free to contact me at tjtahmas@gmail.com
 
-The **Model** is the data layer of the application. It is concerned with the structure of the database and the logic used to retrieve that data. We implemented Sequelize as the ORM for querying the database.
+## License
 
-Last but not least is the **Controller**. Think of it as the intermediary between the View and the Model. The Controller handles input from the user, interacts with the Model to create, read, update, or delete data, and then returns the results of that query to the user via the View layer.
+MIT License
 
+Copyright (c) 2021 Thomas Tahmassebi
 
-## Key Technologies In App
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-* [Model-View-Controller](https://developer.mozilla.org/en-US/docs/Glossary/MVC)
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-* [Sequelize model](https://sequelize.org/master/class/lib/model.js~Model.html)
-
-* [Handlebars.js](https://www.npmjs.com/package/express-handlebars)
-
-  * [Expressions](https://handlebarsjs.com/guide/expressions.html)
-
-  * [Built-in helpers](https://handlebarsjs.com/guide/builtin-helpers.html)
-
-  * [Partials](https://handlebarsjs.com/guide/partials.html#basic-partials)
-
-  * [Custom helpers](https://www.npmjs.com/package/express-handlebars#helpers)
-
-
-## Technologies for future updates
-
-
-* Sessions and Cookies
-
-  * [express-session](https://www.npmjs.com/package/express-session)
-
-  * [connect-session-store using Sequelize](https://www.npmjs.com/package/connect-session-sequelize) 
-
-  * [Express.js session cookie](https://github.com/expressjs/session#cookie)
-
-* [Express.js middleware](https://expressjs.com/en/guide/using-middleware.html)
-
-
-## Screenshots
-
-[Creating Character](screenshots/image-create-character.png)
-
-[Group Info](screenshots/image-group-info.png)
-
-[Login:Before Form](screenshots/image-round-table-login-1.png)
-
-[Form Gen](screenshots/image-round-table-login-2.png)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+---
