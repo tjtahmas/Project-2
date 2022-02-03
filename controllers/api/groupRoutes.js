@@ -40,4 +40,24 @@ router.put('/update/:id', async (req, res) => {
     }
 });
 
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const deleteGroup = await Group.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        if (!deleteGroup) {
+            res.status(404).json({ message: 'No group found with that id.'});
+            return;
+        }
+
+        res.status(200).json(deleteGroup);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 module.exports = router;

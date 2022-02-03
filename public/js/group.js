@@ -14,9 +14,9 @@ const editGroup = async (event) => {
 
     if (id && (campaign || meetings || announcement)) {
         // Send an UPDATE request to API
-        const response = await fetch('/api/groups/edit/' + id, {
+        const response = await fetch('/api/groups/update/' + id, {
             method: 'UPDATE',
-            body: JSON.stringify({id, campaign, meetings, announcement}),
+            body: JSON.stringify({ campaign, meetings, announcement}),
             headers: { 'Content-Type': 'application/json'}
         });
 
@@ -28,6 +28,29 @@ const editGroup = async (event) => {
     }
 }
 
+const deleteGroup = async (event) => {
+    console.log('DELETING GROUP')
+    event.preventDefault();
+
+    const id = document.querySelector('#group-id').innerHTML;
+
+    const response = await fetch('/api/groups/delete/' + id, {
+        method: 'DELETE',
+        body: JSON.stringify({ id }),
+        headers: { 'Content-Type': 'application/json'}
+    });
+
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        alert('Failed to delete group.')
+    }
+}
+
 document
     .querySelector('.edit-group-form')
     .addEventListener('submit', editGroup);
+
+document
+    .querySelector('.delete-group')
+    .addEventListener('click', deleteGroup);

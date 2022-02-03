@@ -1,32 +1,40 @@
 {{#if isDM}}
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Edit Group</button>
+<div class="row">
+  <div class="col-md-6">
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Edit Group</button>
 
-  <div id="id01" class="modal">
+    <div id="id01" class="modal">
 
-    <form class="modal-content animate edit-group-form">
+      <form class="modal-content animate edit-group-form">
 
-      <br />
-      <br />
-      <div class="container" id="form-font-properties">
-
-        <label for="uname"><b>Campaign</b></label>
-        <input type="text" placeholder="{{group.campaign}}" id="edit-campaign">
-
-        <label for="psw"><b>Meetings</b></label>
-        <input type="text" placeholder="{{group.meetings}}" id="edit-meetings">
-
-        <label for="announcement"><b>Announcement</b></label>
-        <textarea type="text" style="height:200px; width: 100%" placeholder="{{group.announcement}}" id="edit-announcement"></textarea>
         <br />
         <br />
+        <div class="container" id="form-font-properties">
 
-        <button type="submit">Update Group</button>
+          <label for="uname"><b>Campaign</b></label>
+          <input type="text" placeholder="{{group.campaign}}" id="edit-campaign">
 
-      </div>
-      <br />
-      <br />
-    </form>
+          <label for="psw"><b>Meetings</b></label>
+          <input type="text" placeholder="{{group.meetings}}" id="edit-meetings">
+
+          <label for="announcement"><b>Announcement</b></label>
+          <textarea type="text" style="height:200px; width: 100%" placeholder="{{group.announcement}}"
+            id="edit-announcement"></textarea>
+          <br />
+          <br />
+
+          <button type="submit">Update Group</button>
+
+        </div>
+        <br />
+        <br />
+      </form>
+    </div>
   </div>
+  <div class="col-md-6">
+    <button class="delete-group" type="delete">Delete Group</button>
+  </div>
+</div>
 {{/if}}
 <section class="group-info" class="container">
   <div class="information">
@@ -50,7 +58,7 @@
     <div id="announcement">
       <p>{{group.announcement}}</p>
       {{#unless group.announcement}}
-        <p>Click 'Edit Group' to create your DM announcement!</p>
+      <p>Click 'Edit Group' to create your DM announcement!</p>
       {{/unless}}
     </div>
     <br />
