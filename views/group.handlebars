@@ -3,20 +3,20 @@
 
   <div id="id01" class="modal">
 
-    <form class="modal-content animate login-form">
+    <form class="modal-content animate edit-group-form">
 
       <br />
       <br />
       <div class="container" id="form-font-properties">
 
         <label for="uname"><b>Campaign</b></label>
-        <input type="text" placeholder="Lost Mine of Phandelver" id="uname">
+        <input type="text" placeholder="{{group.campaign}}" id="edit-campaign">
 
         <label for="psw"><b>Meetings</b></label>
-        <input type="text" placeholder="Mondays @ 5:00PM EST" id="psw">
+        <input type="text" placeholder="{{group.meetings}}" id="edit-meetings">
 
         <label for="announcement"><b>Announcement</b></label>
-        <textarea type="text" style="height:200px; width: 100%" placeholder="Don't forget to make your characters!" id="form-announcement"></textarea>
+        <textarea type="text" style="height:200px; width: 100%" placeholder="{{group.announcement}}" id="edit-announcement"></textarea>
         <br />
         <br />
 
@@ -34,7 +34,7 @@
       <div class="col-md-6">
         <div class="group-info-title">
           <h1 id="title">{{group.group_name}}</h1>
-          <small id="group-id">ID: {{group.id}}</small>
+          <small id="group-id">{{group.id}}</small>
         </div>
         <h4 id="campaign">{{group.campaign}}</h4>
         <small>{{group.meetings}}</small>
@@ -60,3 +60,7 @@
     </div>
   </div>
 </section>
+
+{{#if isDM}}
+<script src="/js/group.js"></script>
+{{/if}}

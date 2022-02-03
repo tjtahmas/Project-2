@@ -25,4 +25,19 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.put('/update/:id', async (req, res) => {
+    try {
+        const updateGroup = await Group.update({
+            campaign: req.body.campaign,
+            meetings: req.body.meetings,
+            announcement: req.body.announcement   
+        }, {where: { id: req.params.id} })
+
+        res.status(200).json(updateGroup);
+    }
+    catch(err) { 
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
