@@ -60,4 +60,21 @@ router.delete('/delete/:id', async (req, res) => {
     }
 })
 
+router.post('/join/:id', async (req, res) => {
+    try {
+        const joinGroup = await UserGroup.create({
+            user_id: req.session.user_id,
+            group_id: req.body.id
+        });
+
+        if (!joinGroup) {
+            res.status(404).json({ message: 'No group found with that id.'});
+        }
+
+        res.status(200).json(joinGroup);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 module.exports = router;

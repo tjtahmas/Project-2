@@ -1,15 +1,25 @@
-<div class="group-title">
-<h1 class="page-title">Groups</h1>
-  <h3 class="add-group"><a href="/new-group">New Group ➕</a></h3>
+<div class="row group-title">
+  <div class="col-md-4">
+    <h1 class="page-title">Groups</h1>
+  </div>
+  <div class="col-md-4">
+    <form class="join-group-form">
+      <input id="join-group-id" type="text" placeholder="Input Group ID">
+      <button type="submit">Join Group</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <h3 class="add-group" style="text-align: right;"><a href="/new-group">New Group ➕</a></h3>
+  </div>
 </div>
 {{#each groups as |group| }}
 <section id="user-infos" class="container group-group">
   <div class="user-info group-name">
     <h1 class="group-link"><a href="/group/{{id}}">{{group_name}}</a></h1>
-    <br/>
+    <br />
     <h5> Dungeon Master: <a href="/user/{{dungeonMasterId}}">{{dungeonMaster}}</a></h5>
     <h5>Current Campaign: {{campaign}}</h5>
-    <br/>
+    <br />
     <ul>
       <li>
         <h5>Members:</h5>
@@ -24,3 +34,4 @@
 {{else}}
 <p>No group available.</p>
 {{/each}}
+<script src="/js/homepage.js"></script>
