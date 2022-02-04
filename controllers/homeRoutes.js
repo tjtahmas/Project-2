@@ -115,8 +115,14 @@ router.get('/group/:id', withAuth, async (req, res) => {
                     Character
                 ]
             });
-            if (newUGCData && groupData.users[i].id == req.session.user_id){
+            if (groupData.users[i].id == req.session.user_id){
+                if (newUGCData){
                 hasCharacter = true;
+                }
+                
+                req.session.user_group_id = groupData.users[i].userGroup.dataValues.id
+
+                console.log(req.session.user_group_id)
             }
             if (newUGCData){
                 groupCharacters[i] = newUGCData.character;
@@ -129,7 +135,7 @@ router.get('/group/:id', withAuth, async (req, res) => {
         const group = groupData.get({ plain: true });
         const isDM = (group.dun_master_id == req.session.user_id);
 
-        console.log(hasCharacter);
+        //console.log(group);
 
         res.render('group', { group, loggedIn: req.session.logged_in, isDM, hasCharacter, groupCharacters})
     } catch (err) {

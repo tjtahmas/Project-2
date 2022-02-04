@@ -1,11 +1,10 @@
 {{#each groupCharacters as |character|}}
 <div class="col-md-4">
     <div class="card">
-        <h2>{{dataValues.character_name}}</h2>
+        <h2><a href="{{dataValues.link}}">{{dataValues.character_name}}</a></h2>
         <h4>{{dataValues.race}} {{dataValues.class}}</h4>
         <h5>Owned By: <a href="/user/{{user_id}}">{{user_name}}</a></h5>        
         <p>{{dataValues.description}}</p>
-        <small><a href="https://dndbeyond.com">dndbeyond LINK</a></small>
     </div>
 </div>
 {{/each}}

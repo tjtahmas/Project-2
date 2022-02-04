@@ -25,13 +25,16 @@ Currently, you can:
  - View your groups
  - Create a new group for yourself
  - Edit group information (if you are the DM)
+ - Delete Group (if you are the DM)
+ - Add group by ID
 
 Soon:
- - Add group by ID
  - Create a new Character as a player
  - Edit Character
- - Delete Group (if you are the DM)
  - Delete Character (if you are the owner)
+ - Groups use UUIDs
+ - Database Cascades on Delete
+ - Add dropdowns to Menu options
 
 ## Credit
 The GitHub Repository is at https://github.com/tjtahmas/Project-2
