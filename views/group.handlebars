@@ -63,6 +63,52 @@
     </div>
     <br />
     <h3>Members:</h3>
+    {{#unless hasCharacter}}
+      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add Character</button>
+
+    <div id="id01" class="modal">
+
+      <form class="modal-content animate edit-group-form">
+
+        <br />
+        <br />
+        <div class="container" id="form-font-properties">
+
+          <label for="character-name"><b>Character Name</b></label>
+          <input type="text" placeholder="Enter Character Name" id="character-name">
+          <small>For name ideas, visit <a href="https://www.fantasynamegenerators.com/">Fantasy Name Generators</a></small>
+          <br />
+          <br />
+          <label for="class"><b>Class</b></label>
+          <input type="text" placeholder="Enter Character Class" id="character-class">
+          <small>For class info, visit <a href="https://www.dndbeyond.com/classes">D&D Beyond</a></small>
+          <br />
+          <br />
+          <label for="race"><b>Race</b></label>
+          <input type="text" placeholder="Enter Character Race" id="character-race">
+          <small>For race info, visit <a href="https://www.dndbeyond.com/races">D&D Beyond</a></small>
+          <br />
+          <br />
+          <label for="description"><b>Description</b></label>
+          <textarea type="text" placeholder="Enter Character Description" style="height:200px; width: 100%" id="character-description"></textarea>
+          <br />
+          <br />
+
+          <label for="link"><b>D&D Beyond Link</b></label>
+          <input type="text" placeholder="Enter a link to your Character Sheet" id="character-link">
+          <small>Create your character sheet at <a href="https://www.dndbeyond.com/characters/builder">D&D Beyond</a></small>
+
+          <br />
+          <br />
+
+          <button type="submit">Create Character</button>
+
+        </div>
+        <br />
+        <br />
+      </form>
+    </div>
+    {{/unless}}
     <div class="row">
       {{> group-characters}}
     </div>
