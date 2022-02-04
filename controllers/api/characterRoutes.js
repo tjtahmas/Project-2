@@ -5,6 +5,8 @@ const res = require('express/lib/response');
 const { Character, UserGroupCharacter } = require('../../models');
 
 router.post('/', async (req, res) => {
+    console.log(req.body)
+    console.log(req.session.user_group_id)
     try {
         const newCharacter = await Character.create({
             character_name: req.body.name,

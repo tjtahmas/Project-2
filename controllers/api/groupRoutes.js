@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
             group_id: newGroup.id
         })
 
-        res.status(200).json(newGroup);
+        res.status(200).json(newGroup, newUserGroup);
     } catch (err) {
         res.status(500).json(err);
     }

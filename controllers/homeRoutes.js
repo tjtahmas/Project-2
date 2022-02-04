@@ -119,10 +119,7 @@ router.get('/group/:id', withAuth, async (req, res) => {
                 if (newUGCData){
                 hasCharacter = true;
                 }
-                
                 req.session.user_group_id = groupData.users[i].userGroup.dataValues.id
-
-                console.log(req.session.user_group_id)
             }
             if (newUGCData){
                 groupCharacters[i] = newUGCData.character;

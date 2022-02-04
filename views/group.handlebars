@@ -68,7 +68,7 @@
 
     <div id="id01" class="modal">
 
-      <form class="modal-content animate edit-group-form">
+      <form class="modal-content animate add-character-form">
 
         <br />
         <br />
@@ -118,3 +118,7 @@
 {{#if isDM}}
 <script src="/js/group.js"></script>
 {{/if}}
+
+{{#unless hasCharacter}}
+<script src="/js/new-character.js"></script>
+{{/unless}}
