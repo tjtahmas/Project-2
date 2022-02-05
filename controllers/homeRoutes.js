@@ -110,7 +110,9 @@ router.get('/group/:id', withAuth, async (req, res) => {
         const groupCharacters = [];
         let hasCharacter = false;
         for (i = 0; i < groupData.users.length; i++){
-            let newUGCData = await UserGroupCharacter.findByPk(groupData.users[i].userGroup.id, {
+            let newUGCData = await UserGroupCharacter.findOne({
+                where: { user_group_id: groupData.users[i].userGroup.id,
+                }, 
                 include: [
                     Character
                 ]
@@ -132,7 +134,7 @@ router.get('/group/:id', withAuth, async (req, res) => {
         const group = groupData.get({ plain: true });
         const isDM = (group.dun_master_id == req.session.user_id);
 
-        //console.log(group);
+        //console.log(groupCharacters);
 
         res.render('group', { group, loggedIn: req.session.logged_in, isDM, hasCharacter, groupCharacters})
     } catch (err) {

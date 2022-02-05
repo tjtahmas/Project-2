@@ -27,9 +27,10 @@ Currently, you can:
  - Edit group information (if you are the DM)
  - Delete Group (if you are the DM)
  - Add group by ID
+ - Create a new Character as a player
 
 Soon:
- - Create a new Character as a player
+ - SHOW CORRECT OWNER OF CHARACTERS
  - Edit Character
  - Delete Character (if you are the owner)
  - Groups use UUIDs
